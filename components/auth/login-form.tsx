@@ -8,7 +8,11 @@ export const LoginForm = () => {
             backButtonHref="/auth/register"
             showSocial
         >
-            Login Form
+            <form>
+                Login Form
+                <input>
+                </input>
+            </form>
         </CardWrapper>
     )
 }
