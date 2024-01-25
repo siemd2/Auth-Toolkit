@@ -20,10 +20,10 @@ export default function Home() {
           Auth
         </h1>
         <p className="text-lg text-white">
-          A simple authentication service
+          A custom authentication service
         </p>
         <div>
-          <LoginButton mode="modal">
+          <LoginButton>
             <Button variant="secondary" size="lg">
               Sign in
             </Button>
