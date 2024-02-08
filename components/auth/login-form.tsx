@@ -22,10 +22,10 @@ import { FormSuccess } from "@/components/form-success";
 import { login } from "@/actions/login"; //server action for passing login info to server
 
 export const LoginForm = () => {
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [error, setError] = useState<string | undefined>("");
+    const [success, setSuccess] = useState<string | undefined>("");
     const [isPending, startTransition] = useTransition();
-    
+
     // login form hook
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
@@ -37,8 +37,16 @@ export const LoginForm = () => {
 
     // custom on submit function
     const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+        // for each submit, clear error and success messages
+        setError("");
+        setSuccess("");
+        
         startTransition(() => {
-            login(values); //send login info to servers
+            login(values) // send data to server via server action
+                .then((data) => {
+                    setError(data.error);
+                    setSuccess(data.success);
+                })
         });
     };
 
@@ -92,8 +100,8 @@ export const LoginForm = () => {
                             )}
                         />
                     </div>
-                    <FormError message=""/>
-                    <FormSuccess message=""/>
+                    <FormError message={error}/>
+                    <FormSuccess message={success}/>
                     <Button
                         disabled={isPending} // disable input while for submission pending
                         type="submit"
