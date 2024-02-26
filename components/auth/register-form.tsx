@@ -73,7 +73,7 @@ export const RegisterForm = () => {
                                     <FormControl>
                                         <Input 
                                             {...field}
-                                            disabled={isPending} // disable input while for submission pending
+                                            disabled={isPending} // disable input while form submission is pending
                                             placeholder="john.doe@example.com"
                                             type="email"
                                         />
