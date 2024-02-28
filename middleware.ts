@@ -40,7 +40,7 @@ export default auth((req) => {
 // Everything else will invoke middleware and need to be authenticated
 export const config = {
     // this regular expression from Clerk is much better than the default next auth one bc of better coverage
-    // this will protect the entire app by default, and then we can open specific routes to public
+    // this will protect the entire app by default, and then we can open up specific routes to the public
     // this is better because there is usually more private routes than public ones
     matcher: ["/((?!.+\\.[\\w]+$|_next).*)", "/", "/(api|trpc)(.*)"],
 }
