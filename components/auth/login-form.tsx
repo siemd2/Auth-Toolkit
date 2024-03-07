@@ -44,8 +44,9 @@ export const LoginForm = () => {
         startTransition(() => {
             login(values) // send data to server via server action
                 .then((data) => {
-                    setError(data.error);
-                    setSuccess(data.success);
+                    setError(data?.error);
+                    // TODO: add when 2fa is implemented
+                    //setSuccess(data?.success);
                 })
         });
     };
@@ -55,7 +56,6 @@ export const LoginForm = () => {
             headerLabel="Welcome Back!"
             backButtonLabel="Don't have an account?"
             backButtonHref="/auth/register"
-            showSocial
         >
             <Form {...form}>
                 <form 
