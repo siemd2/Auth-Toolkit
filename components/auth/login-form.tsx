@@ -45,8 +45,7 @@ export const LoginForm = () => {
             login(values) // send data to server via server action
                 .then((data) => {
                     setError(data?.error);
-                    // TODO: add when 2fa is implemented
-                    //setSuccess(data?.success);
+                    setSuccess(data?.success);
                 })
         });
     };
