@@ -5,7 +5,8 @@
  */
 
 export const publicRoutes = [
-    "/" // landing page
+    "/", // landing page
+    "/auth/new-verification", // email verification page
 ];
 
 /**
@@ -16,6 +17,7 @@ export const publicRoutes = [
 export const authRoutes = [
     "/auth/login",
     "/auth/register",
+    "/auth/error",
 ];
 
 /**
