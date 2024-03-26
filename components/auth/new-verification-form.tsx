@@ -18,6 +18,10 @@ export const NewVerificationForm = () => {
     const token = searchParams.get("token");
 
     const onSubmit = useCallback(() => {
+        // possibly prevents react hard mode running this useEffect twice 
+        // TODO: test in production to make sure it doesnt check twice
+        if (success || error) return;
+
         if(!token) {
             setError("Missing Token!");
             return;
@@ -33,7 +37,7 @@ export const NewVerificationForm = () => {
                 setError("Something went wrong!");
             
             })
-    }, [token]);
+    }, [token, success, error]);
 
     useEffect(() => {
         onSubmit();
@@ -50,7 +54,9 @@ export const NewVerificationForm = () => {
                     <ScaleLoader/>
                 )}
                 <FormSuccess message={success} />
-                <FormError message={error} />
+                {!success && (
+                    <FormError message={error} />
+                )}
             </div>
         </CardWrapper>
     );
