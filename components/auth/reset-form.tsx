@@ -19,7 +19,7 @@ import { CardWrapper } from "@/components/auth/card-wrapper";
 import { Button } from "@/components/ui/button";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
-import { login } from "@/actions/login"; //server action for passing login info to server
+import { reset } from "@/actions/reset"; //server action for passing login info to server
 
 export const ResetForm = () => {
     const [error, setError] = useState<string | undefined>("");
@@ -41,7 +41,7 @@ export const ResetForm = () => {
         setSuccess("");
         
         startTransition(() => {
-            login(values) // send data to server via server action
+            reset(values) // send data to server via server action
                 .then((data) => {
                     setError(data?.error);
                     setSuccess(data?.success);
