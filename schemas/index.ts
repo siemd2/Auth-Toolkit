@@ -11,6 +11,13 @@ export const LoginSchema = z.object({
     }) // dont specify a minimum length on login because people may have registered when rules were different, instead specify min of 1
 });
 
+export const ResetSchema = z.object({
+    email: z.string().email({
+        message: "Email is required" // custom error message
+    }),
+});
+
+
 export const RegisterSchema = z.object({
     email: z.string().email({
         message: "Email is required" // custom error message
