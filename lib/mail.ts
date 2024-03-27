@@ -13,7 +13,7 @@ export const sendTwoFactorTokenEmail = async (
         html: `
             <h1>Your two-factor authentication code</h1>
             <p>Your two-factor authentication code is: <strong>${token}</strong></p>
-            <p>This code will expire in 15 minutes</p>
+            <p>This code will expire in 5 minutes</p>
         `,
     });
 };
