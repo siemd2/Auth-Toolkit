@@ -8,7 +8,8 @@ export const LoginSchema = z.object({
     }),
     password: z.string().min(1, {
         message: "Password is required"
-    }) // dont specify a minimum length on login because people may have registered when rules were different, instead specify min of 1
+    }), // dont specify a minimum length on login because people may have registered when rules were different, instead specify min of 1
+    code: z.optional(z.string()), // optional two-factor code
 });
 
 export const NewPasswordSchema = z.object({
