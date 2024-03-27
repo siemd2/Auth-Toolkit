@@ -20,7 +20,7 @@ export default function Home() {
           Edison Motors
         </h1>
         <p className="text-lg text-white">
-          A custom authentication service
+          Authentication service
         </p>
         <div>
           <LoginButton>
