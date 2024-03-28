@@ -1,4 +1,8 @@
 /**
+ * All routes are protected by default, we only tell the middleware which routes are public
+ */
+
+/**
  * An array of routes that are accessible to the public
  * These routes will not invoke the middleware and thus do not require authentication
  * @type {string[]}
